@@ -15,3 +15,18 @@ app.get('/', (req,res)=>{
 app.listen(PORT, () => {
     console.log(`🚀 Server is running on http://localhost:${PORT}`)   
 });
+
+const FACULTY_USER={
+    email:"admin@college.com",
+    password:"admin@123"
+}
+
+app.post('/api/login', (req,res)=>{
+    const{email, password}=req.body;
+
+    if(email===FACULTY_USER.email && password===FACULTY_USER.password){
+        res.status(200).json({success: true, message: "Login successful"});
+    } else {
+        res.status(401).json({success: false, message: "Invalid Credential"});
+    }
+});
