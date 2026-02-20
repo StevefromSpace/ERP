@@ -12,8 +12,8 @@ function App(){
 
         <main className="flex-grow flex flex-col">
           <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/login" element={<Login />} /> 
+            <Route path="/" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} /> 
           </Routes>
         </main>
 

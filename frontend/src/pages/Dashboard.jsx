@@ -1,8 +1,27 @@
+import ModuleCard from "../components/ModuleCard";
+import { useNavigate } from "react-router-dom";
+
 export default function Dashboard() {
+
+  const navigate=useNavigate();
+
+  const handleModuleSelect=(name)=>{
+
+    console.log('Access Granted: ${moduleName}');
+    alert('Accessing $moduleName Terminal');
+
+    if(name=="Database"){
+      navigate("/Data");
+    }
+    else{
+      navigate("/Error");
+    }
+  };
+
   const modules = [
     { title: "Student Management", status: "Active", icon: "📊" },
-    { title: "Inventory", status: "Nominal", icon: "📦" },
-    { title: "Financials", status: "Secure", icon: "💳" },
+    { title: "Database", status: "Nominal", icon: "📦" },
+    { title: "Autentication", status: "Secure", icon: "💳" },
     { title: "System Logs", status: "Running", icon: "📜" },
   ];
   return (
@@ -13,18 +32,17 @@ export default function Dashboard() {
         </header>
 
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">{modules.map((module, index) =>(
-        <div key={index} className="p-6 bg-[#1e293b] border border-gray-700 rounded-xl hover:border-blue-500 transition-colors cursor-pointer group shadow-lg">
-      <div className="text-3xl mb-4 group-hover:scale-110 transition-transform">
-        {module.icon}
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {modules.map((module, index) =>(
 
-      <h3 className="text-lg font-bold">{module.title}</h3>
-            <div className="flex items-center gap-2 mt-2">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              <span className="text-xs text-gray-400 uppercase tracking-widest">{module.status}</span>
-            </div>
-        </div>
+          <ModuleCard
+            key={index}
+            title={module.title}
+            icon={module.icon}
+            status={module.status}
+            onSelect={handleModuleSelect}
+          />
+        
           ))}
       </div>
 
