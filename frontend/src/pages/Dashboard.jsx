@@ -10,8 +10,8 @@ export default function Dashboard() {
     console.log('Access Granted: ${moduleName}');
     alert('Accessing $moduleName Terminal');
 
-    if(name=="Database"){
-      navigate("/Data");
+    if(name=="Logs"){
+      navigate("/Dashboard/Logger");
     }
     else{
       navigate("/Error");
@@ -22,7 +22,7 @@ export default function Dashboard() {
     { title: "Student Management", status: "Active", icon: "📊" },
     { title: "Database", status: "Nominal", icon: "📦" },
     { title: "Autentication", status: "Secure", icon: "💳" },
-    { title: "System Logs", status: "Running", icon: "📜" },
+    { title: "Logs", status: "Running", icon: "📜" },
   ];
   return (
     <div className="grow p-8 bg-[#0f172a] text-white">
