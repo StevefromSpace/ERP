@@ -25,7 +25,11 @@ app.post('/api/login', (req,res)=>{
     const{email, password}=req.body;
 
     if(email===FACULTY_USER.email && password===FACULTY_USER.password){
-        res.status(200).json({success: true, message: "Login successful"});
+        res.status(200).json({
+            success: true, 
+            message: "Login successful",
+            roles: ["admin", "faculty"]
+    });
     } else {
         res.status(401).json({success: false, message: "Invalid Credential"});
     }
