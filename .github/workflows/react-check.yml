@@ -1,0 +1,27 @@
+name: React Build Check
+
+on:
+  push:
+    branches: [ "main", "Routes" ]
+  pull_request:
+    branches: [ "main" ]
+
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Download Repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.x'
+
+    - name: Install Frontend Dependencies
+      run: npm install
+
+    - name: Check if React builds successfully
+      run: npm run build
