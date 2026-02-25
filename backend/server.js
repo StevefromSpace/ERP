@@ -18,7 +18,8 @@ app.listen(PORT, () => {
 
 const FACULTY_USER={
     email:"admin@college.com",
-    password:"admin@123"
+    password:"admin@123",
+    roles: ["admin", "faculty"]
 }
 
 app.post('/api/login', (req,res)=>{
@@ -28,7 +29,7 @@ app.post('/api/login', (req,res)=>{
         res.status(200).json({
             success: true, 
             message: "Login successful",
-            roles: ["admin", "faculty"]
+            roles: FACULTY_USER.roles
     });
     } else {
         res.status(401).json({success: false, message: "Invalid Credential"});
