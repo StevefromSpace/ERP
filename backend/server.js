@@ -37,6 +37,18 @@ app.post('/api/login', async(req,res)=>{
     const query=`select * from users where email=$1`;
     const result=await pool.query(query,[email])
 
+    if(user.password===password){
+        res.status(200).json({
+            success: true,
+            role:user.roles
+        });
+    }else{
+        res.status(401).json({
+            success: true;
+            message:"Wrong Password"
+        })
+    }
+
     if(email===FACULTY_USER.email && password===FACULTY_USER.password){
         res.status(200).json({
             success: true, 
