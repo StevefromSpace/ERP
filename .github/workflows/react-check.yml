@@ -2,7 +2,7 @@ name: React Build Check
 
 on:
   push:
-    branches: [ "main", "Routes" ]
+    branches: [ "main", "Routes", "db", "dev" ]
   pull_request:
     branches: [ "main" ]
 
