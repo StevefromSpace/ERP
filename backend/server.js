@@ -49,8 +49,12 @@ app.post('/api/log-class', async (req, res) => {
 
     try {
         const result = await pool.query(query, values);
-        res.status(201).json({ success: true, log: result.rows[0] });
+        res.status(201).json({ 
+            success: true, 
+            log: result.rows[0] });
     } catch (err) {
-        res.status(500).json({ success: false, error: err.message });
+        res.status(500).json({ 
+            success: false, 
+            error: err.message });
     }
 });
