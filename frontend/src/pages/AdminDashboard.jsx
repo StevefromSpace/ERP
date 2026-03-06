@@ -17,7 +17,7 @@ const AdminDashboard=()=>{
 
 
     return(
-        <h1>Welcome to ADmin Dashbaord</h1>
+        <h1 className="text-white text-bold">Welcome to admin dashboard</h1>
     );
 };
 
